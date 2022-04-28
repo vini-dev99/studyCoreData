@@ -110,18 +110,9 @@ class ViewController: SViewController {
     // MARK: - fileprivate
     
     fileprivate func fetch() {
-//        fetchTasks { (result) in
-//            switch result {
-//            case .success(let managedObjects):
-//                self.tasks = managedObjects
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
-//                self.collectionView.reloadDataOnMainThread()
-//            case .failure(let err):
-////                Alert.showError(message: err.localizedDescription)
-//            }
-//        }
     }
     
     // MARK: - public
@@ -148,15 +139,11 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         todos.count
-//        tasks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.reuseIdentifier, for: indexPath) as! CollectionViewCell
-//        let task = tasks[indexPath.row]
-//        let taskTitle = task.value(forKey: "title") as? String ?? "N/A"
         cell.setup(with: todos[indexPath.row], at: indexPath)
-//        cell.setup(with: taskTitle, at: indexPath)
         return cell
     }
     
