@@ -9,10 +9,6 @@ import UIKit
 import SparkUI
 import Layoutless
 
-import UIKit
-import SparkUI
-import Layoutless
-
 import CoreData
 
 // MARK: - Protocols
@@ -27,34 +23,23 @@ class ViewController: SViewController {
     
     // MARK: - Properties
     
-//    var todos: [String] = []
+    var todos: [String] = []
     
-    var tasks: [NSManagedObject] = []
+//    var tasks: [NSManagedObject] = []
     
     // MARK: - Buckets
     
     // MARK: - Navigation items
     
     lazy var addBarButtonItem = UIBarButtonItem(title: "Add", style: .done) {
+        
         let textField = UITextField()
         Alert.show(.alert, title: "Add a task", message: nil, textFields: [textField]) { (texts) in
-            guard let texts = texts, let text = texts.first else { return }
-//            self.todos.append(text)
-//            self.collectionView.reloadData()
-            self.saveTask(with: text) { (result) in
-                switch result {
-                case .success(let finished):
-                    if finished {
-                        print("Successfully saved")
-                        self.fetch()
-                    } else {
-                        Alert.showErrorSomethingWentWrong()
-                    }
-                case .failure(let err):
-                    Alert.showError(message: err.localizedDescription)
-                }
-            }
+            guard let texts = texts, let text = texts.first else {return}
+            self.todos.append(text)
+            self.collectionView.reloadData()
         }
+        
     }
     
     // MARK: - Views
@@ -125,18 +110,18 @@ class ViewController: SViewController {
     // MARK: - fileprivate
     
     fileprivate func fetch() {
-        fetchTasks { (result) in
-            switch result {
-            case .success(let managedObjects):
-                self.tasks = managedObjects
-//                DispatchQueue.main.async {
-//                    self.collectionView.reloadData()
-//                }
-                self.collectionView.reloadDataOnMainThread()
-            case .failure(let err):
-                Alert.showError(message: err.localizedDescription)
-            }
-        }
+//        fetchTasks { (result) in
+//            switch result {
+//            case .success(let managedObjects):
+//                self.tasks = managedObjects
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+//                self.collectionView.reloadDataOnMainThread()
+//            case .failure(let err):
+////                Alert.showError(message: err.localizedDescription)
+//            }
+//        }
     }
     
     // MARK: - public
@@ -162,16 +147,16 @@ extension ViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        todos.count
-        tasks.count
+        todos.count
+//        tasks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.reuseIdentifier, for: indexPath) as! CollectionViewCell
-        let task = tasks[indexPath.row]
-        let taskTitle = task.value(forKey: "title") as? String ?? "N/A"
-//        cell.setup(with: todos[indexPath.row], at: indexPath)
-        cell.setup(with: taskTitle, at: indexPath)
+//        let task = tasks[indexPath.row]
+//        let taskTitle = task.value(forKey: "title") as? String ?? "N/A"
+        cell.setup(with: todos[indexPath.row], at: indexPath)
+//        cell.setup(with: taskTitle, at: indexPath)
         return cell
     }
     
@@ -218,4 +203,3 @@ extension ViewController {
         }
     }
 }
-
