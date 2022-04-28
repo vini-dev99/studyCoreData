@@ -10,6 +10,7 @@ import SparkUI
 import Layoutless
 
 import CoreData
+import AVFoundation
 
 // MARK: - Protocols
 
@@ -23,9 +24,9 @@ class ViewController: SViewController {
     
     // MARK: - Properties
     
-    var todos: [String] = []
+//    var todos: [String] = []
     
-//    var tasks: [NSManagedObject] = []
+    var tasks: [NSManagedObject] = []
     
     // MARK: - Buckets
     
@@ -36,8 +37,19 @@ class ViewController: SViewController {
         let textField = UITextField()
         Alert.show(.alert, title: "Add a task", message: nil, textFields: [textField]) { (texts) in
             guard let texts = texts, let text = texts.first else {return}
-            self.todos.append(text)
-            self.collectionView.reloadData()
+            self.saveTask(with: text) { (result)in
+                switch result {
+                case .success(let finished):
+                    if finished {
+                        print("successfully saved")
+                        self.fetch()
+                    } else {
+                        Alert.showErrorSomethingWentWrong()
+                    }
+                case .failure(let err):
+                    Alert.showErrorSomethingWentWrong()
+                }
+            }
         }
         
     }
@@ -110,9 +122,17 @@ class ViewController: SViewController {
     // MARK: - fileprivate
     
     fileprivate func fetch() {
+        fetchTasks { (result) in
+            switch result {
+            case .success(let managedObjects):
+                self.tasks = managedObjects
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
+            case .failure(let err):
+                Alert.showError(message: err.localizedDescription)
+            }
+        }
     }
     
     // MARK: - public
@@ -138,12 +158,14 @@ extension ViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        todos.count
+        tasks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.reuseIdentifier, for: indexPath) as! CollectionViewCell
-        cell.setup(with: todos[indexPath.row], at: indexPath)
+        let task = tasks[indexPath.row]
+        let taskTitle = task.value(forKey: "title") as? String ?? "N/A"
+        cell.setup(with: taskTitle, at: indexPath)
         return cell
     }
     
@@ -165,7 +187,6 @@ extension ViewController {
         let entity = NSEntityDescription.entity(forEntityName: "Task", in: managedContext)!
         let task = NSManagedObject(entity: entity, insertInto: managedContext)
         task.setValue(title, forKey: "title")
-        
         do {
             try managedContext.save()
             completion(.success(true))
