@@ -14,6 +14,7 @@
 		FC7C3F57281AB4DF0079022C /* ToDoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC7C3F55281AB4DF0079022C /* ToDoList.xcdatamodeld */; };
 		FC7C3F59281AB4E00079022C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC7C3F58281AB4E00079022C /* Assets.xcassets */; };
 		FC7C3F5C281AB4E00079022C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC7C3F5A281AB4E00079022C /* LaunchScreen.storyboard */; };
+		FC7C3F64281B08570079022C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C3F63281B08570079022C /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		FC7C3F58281AB4E00079022C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC7C3F5B281AB4E00079022C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC7C3F5D281AB4E00079022C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC7C3F63281B08570079022C /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				FC7C3F5A281AB4E00079022C /* LaunchScreen.storyboard */,
 				FC7C3F5D281AB4E00079022C /* Info.plist */,
 				FC7C3F55281AB4DF0079022C /* ToDoList.xcdatamodeld */,
+				FC7C3F63281B08570079022C /* CollectionViewCell.swift */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -114,6 +117,9 @@
 				Base,
 			);
 			mainGroup = FC7C3F40281AB4DF0079022C;
+			packageReferences = (
+				FC7C3F65281B09F80079022C /* XCRemoteSwiftPackageReference "SparkUI" */,
+			);
 			productRefGroup = FC7C3F4A281AB4DF0079022C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -141,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC7C3F64281B08570079022C /* CollectionViewCell.swift in Sources */,
 				FC7C3F51281AB4DF0079022C /* ViewController.swift in Sources */,
 				FC7C3F4D281AB4DF0079022C /* AppDelegate.swift in Sources */,
 				FC7C3F4F281AB4DF0079022C /* SceneDelegate.swift in Sources */,
@@ -360,6 +367,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FC7C3F65281B09F80079022C /* XCRemoteSwiftPackageReference "SparkUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rebeloper/SparkUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCVersionGroup section */
 		FC7C3F55281AB4DF0079022C /* ToDoList.xcdatamodeld */ = {
