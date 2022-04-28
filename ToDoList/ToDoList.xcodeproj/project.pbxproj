@@ -15,6 +15,7 @@
 		FC7C3F59281AB4E00079022C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC7C3F58281AB4E00079022C /* Assets.xcassets */; };
 		FC7C3F5C281AB4E00079022C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC7C3F5A281AB4E00079022C /* LaunchScreen.storyboard */; };
 		FC7C3F64281B08570079022C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C3F63281B08570079022C /* CollectionViewCell.swift */; };
+		FC7C3F68281B0B5B0079022C /* SparkUI in Frameworks */ = {isa = PBXBuildFile; productRef = FC7C3F67281B0B5B0079022C /* SparkUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC7C3F68281B0B5B0079022C /* SparkUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +91,9 @@
 			dependencies = (
 			);
 			name = ToDoList;
+			packageProductDependencies = (
+				FC7C3F67281B0B5B0079022C /* SparkUI */,
+			);
 			productName = ToDoList;
 			productReference = FC7C3F49281AB4DF0079022C /* ToDoList.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +124,7 @@
 			mainGroup = FC7C3F40281AB4DF0079022C;
 			packageReferences = (
 				FC7C3F65281B09F80079022C /* XCRemoteSwiftPackageReference "SparkUI" */,
+				FC7C3F66281B0B5B0079022C /* XCRemoteSwiftPackageReference "SparkUI" */,
 			);
 			productRefGroup = FC7C3F4A281AB4DF0079022C /* Products */;
 			projectDirPath = "";
@@ -377,7 +383,23 @@
 				minimumVersion = 0.9.9;
 			};
 		};
+		FC7C3F66281B0B5B0079022C /* XCRemoteSwiftPackageReference "SparkUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rebeloper/SparkUI";
+			requirement = {
+				kind = exactVersion;
+				version = 0.11.11;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FC7C3F67281B0B5B0079022C /* SparkUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC7C3F66281B0B5B0079022C /* XCRemoteSwiftPackageReference "SparkUI" */;
+			productName = SparkUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FC7C3F55281AB4DF0079022C /* ToDoList.xcdatamodeld */ = {
