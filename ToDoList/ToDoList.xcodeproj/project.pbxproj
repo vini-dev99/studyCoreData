@@ -16,6 +16,7 @@
 		FC7C3F5C281AB4E00079022C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC7C3F5A281AB4E00079022C /* LaunchScreen.storyboard */; };
 		FC7C3F64281B08570079022C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C3F63281B08570079022C /* CollectionViewCell.swift */; };
 		FC7C3F68281B0B5B0079022C /* SparkUI in Frameworks */ = {isa = PBXBuildFile; productRef = FC7C3F67281B0B5B0079022C /* SparkUI */; };
+		FC7C3F6A281B0BC70079022C /* CoreDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C3F69281B0BC70079022C /* CoreDataError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		FC7C3F5B281AB4E00079022C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC7C3F5D281AB4E00079022C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC7C3F63281B08570079022C /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		FC7C3F69281B0BC70079022C /* CoreDataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				FC7C3F5D281AB4E00079022C /* Info.plist */,
 				FC7C3F55281AB4DF0079022C /* ToDoList.xcdatamodeld */,
 				FC7C3F63281B08570079022C /* CollectionViewCell.swift */,
+				FC7C3F69281B0BC70079022C /* CoreDataError.swift */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 				FC7C3F4D281AB4DF0079022C /* AppDelegate.swift in Sources */,
 				FC7C3F4F281AB4DF0079022C /* SceneDelegate.swift in Sources */,
 				FC7C3F57281AB4DF0079022C /* ToDoList.xcdatamodeld in Sources */,
+				FC7C3F6A281B0BC70079022C /* CoreDataError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
