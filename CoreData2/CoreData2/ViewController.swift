@@ -1,0 +1,19 @@
+//
+//  ViewController.swift
+//  CoreData2
+//
+//  Created by Vinícius Flores Ribeiro on 29/04/22.
+//
+
+import UIKit
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+
+
+}
+

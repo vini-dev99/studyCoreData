@@ -1,8 +1,9 @@
 //
 //  ViewController.swift
-//  ToDoList
+//  CoreDataDemo2
 //
-//  Created by Vinícius Flores Ribeiro on 28/04/22.
+//  Created by Alex Nagy on 15/07/2020.
+//  Copyright © 2020 Alex Nagy. All rights reserved.
 //
 
 import UIKit
@@ -10,7 +11,6 @@ import SparkUI
 import Layoutless
 
 import CoreData
-import AVFoundation
 
 // MARK: - Protocols
 
@@ -24,34 +24,19 @@ class ViewController: SViewController {
     
     // MARK: - Properties
     
-//    var todos: [String] = []
-    
-    var tasks: [NSManagedObject] = []
+    var todos: [String] = []
     
     // MARK: - Buckets
     
     // MARK: - Navigation items
     
     lazy var addBarButtonItem = UIBarButtonItem(title: "Add", style: .done) {
-        
         let textField = UITextField()
         Alert.show(.alert, title: "Add a task", message: nil, textFields: [textField]) { (texts) in
-            guard let texts = texts, let text = texts.first else {return}
-            self.saveTask(with: text) { (result)in
-                switch result {
-                case .success(let finished):
-                    if finished {
-                        print("successfully saved")
-                        self.fetch()
-                    } else {
-                        Alert.showErrorSomethingWentWrong()
-                    }
-                case .failure(let err):
-                    Alert.showErrorSomethingWentWrong()
-                }
-            }
+            guard let texts = texts, let text = texts.first else { return }
+            self.todos.append(text)
+            self.collectionView.reloadData()
         }
-        
     }
     
     // MARK: - Views
@@ -71,11 +56,11 @@ class ViewController: SViewController {
     
     override func onLoad() {
         super.onLoad()
-        fetch()
     }
     
     override func onAppear() {
         super.onAppear()
+        fetch()
     }
     
     override func onDisappear() {
@@ -122,17 +107,7 @@ class ViewController: SViewController {
     // MARK: - fileprivate
     
     fileprivate func fetch() {
-        fetchTasks { (result) in
-            switch result {
-            case .success(let managedObjects):
-                self.tasks = managedObjects
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-            case .failure(let err):
-                Alert.showError(message: err.localizedDescription)
-            }
-        }
+        
     }
     
     // MARK: - public
@@ -158,56 +133,21 @@ extension ViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        tasks.count
+        todos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.reuseIdentifier, for: indexPath) as! CollectionViewCell
-        let task = tasks[indexPath.row]
-        let taskTitle = task.value(forKey: "title") as? String ?? "N/A"
-        cell.setup(with: taskTitle, at: indexPath)
+        cell.setup(with: todos[indexPath.row], at: indexPath)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let controller = DetailsViewController()
+        controller.todo = todos[indexPath.row]
     }
     
 }
 
 // MARK: - Extensions
 
-extension ViewController {
-    func saveTask(with title: String, completion: @escaping (Result<Bool, Error>) -> ()) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            completion(.failure(CoreDataError.noAppDelegate))
-            return
-        }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Task", in: managedContext)!
-        let task = NSManagedObject(entity: entity, insertInto: managedContext)
-        task.setValue(title, forKey: "title")
-        do {
-            try managedContext.save()
-            completion(.success(true))
-        } catch {
-            completion(.failure(error))
-        }
-    }
-    
-    func fetchTasks(completion: @escaping (Result<[NSManagedObject], Error>) -> ()) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            completion(.failure(CoreDataError.noAppDelegate))
-            return
-        }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Task")
-        
-        do {
-            let result = try managedContext.fetch(fetchRequest)
-            completion(.success(result))
-        } catch {
-            completion(.failure(error))
-        }
-    }
-}
