@@ -24,7 +24,8 @@ class ViewController: SViewController {
     
     // MARK: - Properties
     
-    var todos: [String] = []
+        
+//    var tasks: [Task] = []
     
     var managedContext: NSManagedObjectContext!
     
@@ -109,7 +110,16 @@ class ViewController: SViewController {
     // MARK: - fileprivate
     
     fileprivate func fetch() {
-        
+        fetchTasks { (result) in
+            switch result {
+                
+            case .success(let tasks):
+                Service.tasks = tasks
+                self.collectionView.reloadData()
+            case .failure(let err):
+                Alert.showError(message: err.localizedDescription)
+            }
+        }
     }
     
     // MARK: - public
@@ -135,21 +145,39 @@ extension ViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        todos.count
+        Service.tasks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.reuseIdentifier, for: indexPath) as! CollectionViewCell
-        cell.setup(with: todos[indexPath.row], at: indexPath)
+        
+        let task = Service.tasks[indexPath.row]
+        cell.setup(with: task, at: indexPath)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let controller = DetailsViewController()
-        controller.todo = todos[indexPath.row]
+//        controller.todo = todos[indexPath.row]
+        controller.task = Service.tasks[indexPath.row]
+        controller.managedContext = self.managedContext
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
 }
 
 // MARK: - Extensions
 
+extension ViewController {
+    func fetchTasks(completion: @escaping (Result<[Task], Error>) -> ()) {
+        let request: NSFetchRequest<Task> = Task.fetchRequest()
+        request.predicate = NSPredicate(format: "%K == %@", argumentArray: [#keyPath(Task.completed), false])
+        
+        do {
+            let tasks = try managedContext.fetch(request)
+            completion(.success(tasks))
+        } catch {
+            completion(.failure(error))
+        }
+    }
+}

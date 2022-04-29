@@ -20,7 +20,9 @@ class DetailsViewController: SViewController {
     
     // MARK: - Dependencies
     
-    var todo: String!
+//    var todo: String!
+
+    var task: Task!
     
     // MARK: - Delegates
     
@@ -33,7 +35,14 @@ class DetailsViewController: SViewController {
     // MARK: - Navigation items
     
     lazy var doneBarButtonItem = UIBarButtonItem(title: "Done", style: .done) {
+        self.task.completed = true
         
+        do {
+            try self.managedContext.save()
+            self.navigationController?.popViewController(animated: true)
+        } catch {
+            Alert.showError(message: error.localizedDescription)
+        }
     }
     
     // MARK: - Views
@@ -69,7 +78,7 @@ class DetailsViewController: SViewController {
     override func configureNavigationBar() {
         super.configureNavigationBar()
         
-        title = todo
+        title =  "\(task.title!) - \(task.difficulty)"
         
         navigationItem.setRightBarButton(doneBarButtonItem, animated: false)
     }
@@ -77,6 +86,10 @@ class DetailsViewController: SViewController {
     override func configureViews() {
         super.configureViews()
         
+        guard let data = task.imageData else {
+            return
+        }
+        imageView.image = UIImage(data: data)
     }
     
     // MARK: - Layout

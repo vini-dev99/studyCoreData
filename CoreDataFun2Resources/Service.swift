@@ -9,5 +9,5 @@
 import Foundation
 
 struct Service {
-    
+    static var tasks: [Task] = []
 }

@@ -10,7 +10,7 @@ import UIKit
 import SparkUI
 import Layoutless
 
-class CollectionViewCell: CollectionCell<String>, SelfConfiguringCell {
+class CollectionViewCell: CollectionCell<Task>, SelfConfiguringCell {
     
     static var reuseIdentifier: String = "cell"
     
@@ -27,12 +27,14 @@ class CollectionViewCell: CollectionCell<String>, SelfConfiguringCell {
         
     }
     
-    override func configureViews(for item: String?) {
+    override func configureViews(for item: Task?) {
         super.configureViews(for: item)
-        guard let item = item, let _ = item.color as? UIColor else { return }
+        guard let item = item, let color = item.color as? UIColor else { return }
         
-        setCellBackgroundColor(all: UIColor.random.withAlphaComponent(0.1))
-        titleLabel.text = item
+//        setCellBackgroundColor(all: UIColor.random.withAlphaComponent(0.1))
+//        titleLabel.text = item
+        setCellBackgroundColor(all: color)
+        titleLabel.text = item.title
     }
 }
 
