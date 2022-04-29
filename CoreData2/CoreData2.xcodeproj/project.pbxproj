@@ -9,21 +9,36 @@
 /* Begin PBXBuildFile section */
 		FC5AA719281C0AA90023A788 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5AA718281C0AA90023A788 /* AppDelegate.swift */; };
 		FC5AA71B281C0AA90023A788 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5AA71A281C0AA90023A788 /* SceneDelegate.swift */; };
-		FC5AA71D281C0AA90023A788 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5AA71C281C0AA90023A788 /* ViewController.swift */; };
 		FC5AA723281C0AA90023A788 /* CoreData2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC5AA721281C0AA90023A788 /* CoreData2.xcdatamodeld */; };
 		FC5AA725281C0AAD0023A788 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC5AA724281C0AAD0023A788 /* Assets.xcassets */; };
 		FC5AA728281C0AAD0023A788 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC5AA726281C0AAD0023A788 /* LaunchScreen.storyboard */; };
+		FC5AA735281C0E6D0023A788 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5AA72F281C0E6D0023A788 /* AddViewController.swift */; };
+		FC5AA736281C0E6D0023A788 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5AA730281C0E6D0023A788 /* Service.swift */; };
+		FC5AA737281C0E6D0023A788 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5AA731281C0E6D0023A788 /* DetailsViewController.swift */; };
+		FC5AA738281C0E6D0023A788 /* CoreDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5AA732281C0E6D0023A788 /* CoreDataError.swift */; };
+		FC5AA739281C0E6D0023A788 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5AA733281C0E6D0023A788 /* ViewController.swift */; };
+		FC5AA73A281C0E6D0023A788 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5AA734281C0E6D0023A788 /* CollectionViewCell.swift */; };
+		FC5AA73D281C0F060023A788 /* SparkUI in Frameworks */ = {isa = PBXBuildFile; productRef = FC5AA73C281C0F060023A788 /* SparkUI */; };
+		FC5AA740281C175D0023A788 /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5AA73E281C175D0023A788 /* Task+CoreDataClass.swift */; };
+		FC5AA741281C175D0023A788 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5AA73F281C175D0023A788 /* Task+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FC5AA715281C0AA90023A788 /* CoreData2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreData2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC5AA718281C0AA90023A788 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC5AA71A281C0AA90023A788 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FC5AA71C281C0AA90023A788 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FC5AA722281C0AA90023A788 /* CoreData2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData2.xcdatamodel; sourceTree = "<group>"; };
 		FC5AA724281C0AAD0023A788 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC5AA727281C0AAD0023A788 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC5AA729281C0AAD0023A788 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC5AA72F281C0E6D0023A788 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddViewController.swift; path = ../../CoreDataFun2Resources/AddViewController.swift; sourceTree = "<group>"; };
+		FC5AA730281C0E6D0023A788 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Service.swift; path = ../../CoreDataFun2Resources/Service.swift; sourceTree = "<group>"; };
+		FC5AA731281C0E6D0023A788 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailsViewController.swift; path = ../../CoreDataFun2Resources/DetailsViewController.swift; sourceTree = "<group>"; };
+		FC5AA732281C0E6D0023A788 /* CoreDataError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataError.swift; path = ../../CoreDataFun2Resources/CoreDataError.swift; sourceTree = "<group>"; };
+		FC5AA733281C0E6D0023A788 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../CoreDataFun2Resources/ViewController.swift; sourceTree = "<group>"; };
+		FC5AA734281C0E6D0023A788 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = ../../CoreDataFun2Resources/CollectionViewCell.swift; sourceTree = "<group>"; };
+		FC5AA73E281C175D0023A788 /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FC5AA73F281C175D0023A788 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC5AA73D281C0F060023A788 /* SparkUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,13 +72,20 @@
 		FC5AA717281C0AA90023A788 /* CoreData2 */ = {
 			isa = PBXGroup;
 			children = (
+				FC5AA73E281C175D0023A788 /* Task+CoreDataClass.swift */,
+				FC5AA73F281C175D0023A788 /* Task+CoreDataProperties.swift */,
 				FC5AA718281C0AA90023A788 /* AppDelegate.swift */,
 				FC5AA71A281C0AA90023A788 /* SceneDelegate.swift */,
-				FC5AA71C281C0AA90023A788 /* ViewController.swift */,
 				FC5AA724281C0AAD0023A788 /* Assets.xcassets */,
 				FC5AA726281C0AAD0023A788 /* LaunchScreen.storyboard */,
 				FC5AA729281C0AAD0023A788 /* Info.plist */,
 				FC5AA721281C0AA90023A788 /* CoreData2.xcdatamodeld */,
+				FC5AA72F281C0E6D0023A788 /* AddViewController.swift */,
+				FC5AA734281C0E6D0023A788 /* CollectionViewCell.swift */,
+				FC5AA732281C0E6D0023A788 /* CoreDataError.swift */,
+				FC5AA731281C0E6D0023A788 /* DetailsViewController.swift */,
+				FC5AA730281C0E6D0023A788 /* Service.swift */,
+				FC5AA733281C0E6D0023A788 /* ViewController.swift */,
 			);
 			path = CoreData2;
 			sourceTree = "<group>";
@@ -83,6 +106,9 @@
 			dependencies = (
 			);
 			name = CoreData2;
+			packageProductDependencies = (
+				FC5AA73C281C0F060023A788 /* SparkUI */,
+			);
 			productName = CoreData2;
 			productReference = FC5AA715281C0AA90023A788 /* CoreData2.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +137,9 @@
 				Base,
 			);
 			mainGroup = FC5AA70C281C0AA90023A788;
+			packageReferences = (
+				FC5AA73B281C0F060023A788 /* XCRemoteSwiftPackageReference "SparkUI" */,
+			);
 			productRefGroup = FC5AA716281C0AA90023A788 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,10 +166,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC5AA71D281C0AA90023A788 /* ViewController.swift in Sources */,
 				FC5AA719281C0AA90023A788 /* AppDelegate.swift in Sources */,
 				FC5AA71B281C0AA90023A788 /* SceneDelegate.swift in Sources */,
+				FC5AA73A281C0E6D0023A788 /* CollectionViewCell.swift in Sources */,
+				FC5AA736281C0E6D0023A788 /* Service.swift in Sources */,
+				FC5AA741281C175D0023A788 /* Task+CoreDataProperties.swift in Sources */,
+				FC5AA735281C0E6D0023A788 /* AddViewController.swift in Sources */,
 				FC5AA723281C0AA90023A788 /* CoreData2.xcdatamodeld in Sources */,
+				FC5AA740281C175D0023A788 /* Task+CoreDataClass.swift in Sources */,
+				FC5AA737281C0E6D0023A788 /* DetailsViewController.swift in Sources */,
+				FC5AA739281C0E6D0023A788 /* ViewController.swift in Sources */,
+				FC5AA738281C0E6D0023A788 /* CoreDataError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +384,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FC5AA73B281C0F060023A788 /* XCRemoteSwiftPackageReference "SparkUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rebeloper/SparkUI";
+			requirement = {
+				kind = exactVersion;
+				version = 0.11.11;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FC5AA73C281C0F060023A788 /* SparkUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC5AA73B281C0F060023A788 /* XCRemoteSwiftPackageReference "SparkUI" */;
+			productName = SparkUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FC5AA721281C0AA90023A788 /* CoreData2.xcdatamodeld */ = {

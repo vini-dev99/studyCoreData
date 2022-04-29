@@ -29,7 +29,7 @@ class CollectionViewCell: CollectionCell<String>, SelfConfiguringCell {
     
     override func configureViews(for item: String?) {
         super.configureViews(for: item)
-        guard let item = item, let color = item.color as? UIColor else { return }
+        guard let item = item, let _ = item.color as? UIColor else { return }
         
         setCellBackgroundColor(all: UIColor.random.withAlphaComponent(0.1))
         titleLabel.text = item
