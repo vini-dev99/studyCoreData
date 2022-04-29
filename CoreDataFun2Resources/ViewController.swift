@@ -26,17 +26,19 @@ class ViewController: SViewController {
     
     var todos: [String] = []
     
+    var managedContext: NSManagedObjectContext!
+    
     // MARK: - Buckets
     
     // MARK: - Navigation items
     
     lazy var addBarButtonItem = UIBarButtonItem(title: "Add", style: .done) {
         let textField = UITextField()
-        Alert.show(.alert, title: "Add a task", message: nil, textFields: [textField]) { (texts) in
-            guard let texts = texts, let text = texts.first else { return }
-            self.todos.append(text)
-            self.collectionView.reloadData()
-        }
+
+        let controller = AddViewController()
+        controller.managedContext = self.managedContext
+        self.navigationController?.pushViewController(controller, animated: true)
+        
     }
     
     // MARK: - Views
